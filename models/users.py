@@ -1,4 +1,5 @@
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String 
+from datetime import datetime
+from sqlalchemy import Boolean, Column, DateTime,ForeignKey, Integer, String, column 
 from database import Base
 
 class User(Base):
@@ -13,3 +14,4 @@ class User(Base):
     is_active = Column(Boolean, default=True)
     is_admin=Column(Boolean,default=False)
     project_id = Column(Integer, ForeignKey("projects.id"), index=True)
+    dt=Column(DateTime, default=datetime.now)
